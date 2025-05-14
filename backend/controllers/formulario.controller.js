@@ -25,8 +25,8 @@ const eliminarUsuario = async (req, res) => {
 const editarUsuario = async (req, res) => {
   try {
     const { id } = req.params;
-    const { nombre, apellidos, correo, contrasena } = req.body;
-    await Usuario.findByIdAndUpdate(id, { nombre, apellidos, correo, contrasena });
+    const { nombre, apellidos, correo, contrasena, Direccion} = req.body;
+    await Usuario.findByIdAndUpdate(id, { nombre, apellidos, correo, contrasena, Direccion });
     res.status(200).json({ mensaje: 'Usuario actualizado con éxito ✏️' });
   } catch (error) {
     console.error(error);
@@ -37,8 +37,8 @@ const editarUsuario = async (req, res) => {
 
 const procesarFormulario = async (req, res) => {
   try {
-    const { nombre, apellidos, correo, contrasena } = req.body;
-    const nuevoUsuario = new Usuario({ nombre, apellidos, correo, contrasena });
+    const { nombre, apellidos, correo, contrasena, Direccion} = req.body;
+    const nuevoUsuario = new Usuario({ nombre, apellidos, correo, contrasena, Direccion});
     await nuevoUsuario.save();
 
     res.status(200).json({ mensaje: 'Usuario registrado con éxito 🚀' });
