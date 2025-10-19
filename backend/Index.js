@@ -19,7 +19,12 @@ conectarDB();
 // Rutas
 app.use('/api', formularioRoutes);
 
-// Ruta de confirmación
+/**
+ * @route GET /gracias
+ * @description Ruta de confirmación que muestra un mensaje de agradecimiento.
+ * @param {object} req - El objeto de solicitud de Express.
+ * @param {object} res - El objeto de respuesta de Express.
+ */
 app.get('/gracias', (req, res) => {
   res.send('<h1>Gracias por registrarte!</h1><a href="/">Volver al inicio</a>');
 });
